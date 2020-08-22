@@ -34,7 +34,7 @@ func User(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	_, status, err := db.InserUser(t)
+	_, status, err := db.InsertUser(t)
 	if err != nil {
 		http.Error(w, "An error occurred while trying to enrollment user "+err.Error(), 400)
 		return
