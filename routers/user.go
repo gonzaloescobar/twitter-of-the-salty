@@ -3,11 +3,13 @@ package routers
 import (
 	"encoding/json"
 	"net/http"
+
 	"github.com/gonzaloescobar/twitter-of-the-salty/db"
 	"github.com/gonzaloescobar/twitter-of-the-salty/models"
 )
 
-func User(w http.ResponseWriter, r *http.Request){
+/*User routers*/
+func User(w http.ResponseWriter, r *http.Request) {
 
 	var t models.User
 	err := json.NewDecoder(r.Body).Decode(&t)
@@ -39,7 +41,7 @@ func User(w http.ResponseWriter, r *http.Request){
 	}
 
 	if status == false {
-		http.Error(w,"User insert failed", 400)
+		http.Error(w, "User insert failed", 400)
 		return
 	}
 
